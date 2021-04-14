@@ -14,17 +14,17 @@ Run `download.sh` to download necessary data
 
 ## Intent detection
 ```shell
-python train_intent.py
+python train_intent.py --data_dir [location of training data]
 ```
 If you want to use GPU
 ```shell
-python train_intent.py --gpus 1
+python train_intent.py --data_dir [location of training data] --gpus 1
 ```
 
 ## Slot tagging
 ```shell
-python train_tagging.py
+python train_tagging.py --data_dir [location of training data]
 ```
 If you want to use GPU
 ```shell
-python train_tagging.py --gpus 1
+python train_tagging.py --data_dir [location of training data] --gpus 1
