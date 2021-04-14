@@ -35,7 +35,7 @@ def parse_args() -> Namespace:
         "--cache_dir",
         type=Path,
         help="Directory to the preprocessed caches.",
-        default="./cache/tagging"
+        default="../data"
     )
     parser.add_argument(
         "--ckpt_path",
