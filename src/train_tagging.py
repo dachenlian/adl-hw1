@@ -1,6 +1,3 @@
-import os
-os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
-
 from argparse import ArgumentParser, Namespace
 import logging
 from pathlib import Path
@@ -39,7 +36,7 @@ def parse_args() -> Namespace:
         "--cache_dir",
         type=Path,
         help="Directory to the preprocessed caches.",
-        default="../cache/tagging/",
+        default="../data/",
     )
     parser.add_argument(
         "--ckpt_dir",

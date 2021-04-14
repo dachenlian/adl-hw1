@@ -36,7 +36,7 @@ def parse_args() -> Namespace:
         "--cache_dir",
         type=Path,
         help="Directory to the preprocessed caches.",
-        default="../cache/intent/",
+        default="../data/",
     )
     parser.add_argument(
         "--ckpt_dir",
@@ -73,7 +73,7 @@ if __name__ == "__main__":
 
 if __name__ == '__main__':
     glove = IntentPosDataModule._load_glove('../data/glove.840B.300d.pkl.gz')
-    intent_pos_dm = IntentPosDataModule(embedding_obj=glove)
+    intent_pos_dm = IntentPosDataModule(data_dir=args.data_dir, embedding_obj=glove)
     intent_pos_dm.prepare_data()
     intent_pos_dm.setup('fit')
     intent_labels = intent_pos_dm.intent_to_idx
