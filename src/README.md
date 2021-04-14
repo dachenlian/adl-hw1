@@ -9,8 +9,8 @@ pip install -r requirements.txt
 ```
 
 ## Preprocessing
-# To preprocess intent detectiona and slot tagging datasets
-No need to preprocess
+# To preprocess intent detection and slot tagging datasets
+Run `download.sh` to download necessary data
 
 ## Intent detection
 ```shell
@@ -21,3 +21,10 @@ If you want to use GPU
 python train_intent.py --gpus 1
 ```
 
+## Slot tagging
+```shell
+python train_tagging.py
+```
+If you want to use GPU
+```shell
+python train_tagging.py --gpus 1
