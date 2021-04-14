@@ -1,0 +1,1 @@
+python3.8 test_tagging.py --test_file "${1}" --ckpt_path ../data/checkpoints/tagging/tagging_mt-epoch=28-training_loss_epoch=0.05-val_loss_epoch=0.11.ckpt --pred_file "${2}"

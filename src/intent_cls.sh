@@ -1,0 +1,1 @@
+python3.8 test_intent.py --test_file "${1}" --ckpt_path ../data/checkpoints/intent/intent_mt-epoch=14-training_loss=0.04-val_loss=0.06.ckpt --pred_file "${2}"
