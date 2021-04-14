@@ -13,8 +13,13 @@ pip install -r requirements.txt
 Run `download.sh` to download necessary data
 
 ## Intent detection
+For some reason, `Pytorch Lightning` detectd the GPU at first and then eventually couldn't detect it. If models need to be trained, CPU-only *should* work but obviously it will take a lot longer...
 ```shell
 python train_intent.py --data_dir [location of training data]
+```
+If you want to use CPU
+```shell
+python train_intent.py --data_dir [location of training data]--gpus None
 ```
 If you want to use GPU
 ```shell
@@ -25,6 +30,11 @@ python train_intent.py --data_dir [location of training data] --gpus 1
 ```shell
 python train_tagging.py --data_dir [location of training data]
 ```
+If you want to use CPU
+```shell
+python train_tagging.py --data_dir [location of training data] --gpus None
+```
 If you want to use GPU
 ```shell
 python train_tagging.py --data_dir [location of training data] --gpus 1
+```
