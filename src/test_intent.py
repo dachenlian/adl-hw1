@@ -40,7 +40,7 @@ def parse_args() -> Namespace:
     )
     parser.add_argument("--pred_file", type=Path, default="pred.intent.csv")
     parser.add_argument("--batch_size", type=int, default=128)
-    parser.add_argument("--gpus", type=bool_or_int, choices=[None, 1, 2], help="Use GPU or None to use CPU", default=1)
+    parser.add_argument("--gpus", type=bool_or_int, choices=[None, 1, 2], help="Use GPU or None to use CPU", default=None)
 
     args = parser.parse_args()
     return args
