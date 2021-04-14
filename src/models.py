@@ -53,8 +53,8 @@ class IntentPosClassifier(pl.LightningModule):
         lengths = inpt['length'].to('cpu')
         batch_size = samples.shape[0]
         
+        hidden = self.init_hidden(batch_size).to(samples.device)
         samples = pack_padded_sequence(samples, lengths, batch_first=True, enforce_sorted=False)
-        hidden = self.init_hidden(batch_size)
         out, hidden = self.rnn(samples, hidden)
         hidden = self.dropout(hidden)
         hidden = torch.cat([hidden[-1,...], hidden[-2,...]], dim=1)  # concat last hidden states of forwards and backwards
@@ -106,7 +106,7 @@ class IntentPosClassifier(pl.LightningModule):
         preds = preds.argmax(dim=1).tolist()
         preds = [idx2int[p] for p in preds]
 
-        write_to_csv(ids, preds, out_path)
+        write_to_csv('intent', ids, preds, out_path)
 
         return preds
 
@@ -157,8 +157,8 @@ class TaggingPosClassifier(pl.LightningModule):
         lengths = inpt['length'].to('cpu')
         batch_size = samples.shape[0]
         
+        hidden = self.init_hidden(batch_size).to(samples.device)
         samples = pack_padded_sequence(samples, lengths, batch_first=True, enforce_sorted=False)
-        hidden = self.init_hidden(batch_size)
         out, hidden = self.rnn(samples, hidden)
         out, out_lens = pad_packed_sequence(out, batch_first=True)
         out = self.dropout(out)
